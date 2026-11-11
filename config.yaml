@@ -1,0 +1,63 @@
+model:
+  path: models/yolov8s.pt
+  confidence: 0.40
+  image_size: 640
+  device: ""
+
+video:
+  loop: false
+  process_every_n_frames: 5
+  display_width: 1200
+  display_height: 750
+
+grid:
+  # Change these values to match your CCTV layout.
+  cameras:
+    - name: Camera 1
+      x1: 0.0
+      y1: 0.0
+      x2: 0.5
+      y2: 0.5
+
+    - name: Camera 2
+      x1: 0.5
+      y1: 0.0
+      x2: 1.0
+      y2: 0.5
+
+    - name: Camera 3
+      x1: 0.0
+      y1: 0.5
+      x2: 0.5
+      y2: 1.0
+
+    - name: Camera 4
+      x1: 0.5
+      y1: 0.5
+      x2: 1.0
+      y2: 1.0
+
+tracking:
+  iou_threshold: 0.25
+  max_missing_frames: 12
+
+fall_detection:
+  # A person must satisfy the fall heuristic for several frames.
+  confirmation_frames: 4
+
+  # Bounding-box width / height threshold.
+  horizontal_ratio: 1.15
+
+  # Number of normal frames required before resetting the fall state.
+  recovery_frames: 10
+
+alerts:
+  save_snapshots: true
+  cooldown_seconds: 60
+
+  email:
+    enabled: false
+    smtp_server: smtp.gmail.com
+    smtp_port: 465
+    sender: "vc0410251@gmail.com"
+    recipient: "vc0410251@gmail.com"
