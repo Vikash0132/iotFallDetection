@@ -56,8 +56,8 @@ alerts:
   cooldown_seconds: 60
 
   email:
-    enabled: false
+    enabled: true
     smtp_server: smtp.gmail.com
-    smtp_port: 465
+    smtp_port: 587
     sender: "vc0410251@gmail.com"
     recipient: "vc0410251@gmail.com"
